@@ -10,7 +10,7 @@ def length_converter(value, from_unit, to_unit):
             return value * 39.37  
         elif to_unit == "Feet":  
             return value * 3.281  
-    return value  # If no conversion matches, return the same value  
+    return value  
 
 def weight_converter(value, from_unit, to_unit):  
     if from_unit == "Kilograms":  
@@ -65,60 +65,58 @@ def volume_converter(value, from_unit, to_unit):
             return value * 3785.41  
     return value  
 
-# Title of the app  
 st.title("Unit Converter By Ismail Hussain")  
 
-# Unit selection  
 unit_type = st.selectbox("Choose unit type for conversion", ["Length", "Weight", "Temperature", "Volume"])  
 
 if unit_type == "Length":  
     length_units = ["Select Unit","Meters", "Kilometers", "Centimeters", "Inches", "Feet"]  
     from_unit = st.selectbox("From Unit", length_units)  
     to_unit = st.selectbox("To Unit", length_units)  
-    value = st.text_input("Enter value:")  # Allow any input without restrictions  
+    value = st.text_input("Enter value:")  
 
     if st.button("Convert"):  
-        if value:  
+        if value == "":  
+            st.error("Please enter a value to convert")
+        elif value:  
             converted_value = length_converter(float(value), from_unit, to_unit)  
-            st.success(f"Converted Value: {converted_value:.2f} {to_unit}")
-        elif value == "" :
-            st.error("Please enter a value to convert")        
+            st.success(f"Converted Value: {converted_value:.2f} {to_unit}")  
 
 elif unit_type == "Weight":  
     weight_units = ["Select Unit","Kilograms", "Grams", "Pounds", "Ounces"]  
     from_unit = st.selectbox("From Unit", weight_units)  
     to_unit = st.selectbox("To Unit", weight_units)  
-    value = st.text_input("Enter value:")  # Allow any input without restrictions  
+    value = st.text_input("Enter value:")  
 
     if st.button("Convert"):  
-        if value:  
+        if value == "":  
+            st.error("Please enter a value to convert")
+        elif value:  
             converted_value = weight_converter(float(value), from_unit, to_unit)  
             st.success(f"Converted Value: {converted_value:.2f} {to_unit}")  
-        elif value == "" :
-            st.error("Please enter a value to convert")      
 
 elif unit_type == "Temperature":  
     temperature_units = ["Select Unit","Celsius", "Fahrenheit", "Kelvin"]  
     from_unit = st.selectbox("From Unit", temperature_units)  
     to_unit = st.selectbox("To Unit", temperature_units)  
-    value = st.text_input("Enter value:")  # Allow any input without restrictions  
+    value = st.text_input("Enter value:")  
 
     if st.button("Convert"):  
-        if value:  
+        if value == "":  
+            st.error("Please enter a value to convert")
+        elif value:  
             converted_value = temperature_converter(float(value), from_unit, to_unit)  
             st.success(f"Converted Value: {converted_value:.2f} {to_unit}")  
-        elif value == "" :
-            st.error("Please enter a value to convert")      
 
 elif unit_type == "Volume":  
     volume_units = ["Select Unit","Liters", "Milliliters", "Gallons"]  
     from_unit = st.selectbox("From Unit", volume_units)  
     to_unit = st.selectbox("To Unit", volume_units)  
-    value = st.text_input("Enter value:")  # Allow any input without restrictions  
+    value = st.text_input("Enter value:")  
 
     if st.button("Convert"):  
-        if value:  
+        if value == "":  
+            st.error("Please enter a value to convert")
+        elif value:  
             converted_value = volume_converter(float(value), from_unit, to_unit)  
             st.success(f"Converted Value: {converted_value:.2f} {to_unit}") 
-        elif value == "" :
-            st.error("Please enter a value to convert")    
