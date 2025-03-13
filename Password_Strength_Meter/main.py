@@ -2,7 +2,7 @@
 
 # " FIRST ATTEMPT - WORKED VERY STRICT - DOES'T ALLOW ANY REPETITION OF A SINGLE CHARACTERS"
 
-#Live Link: https://password-generator-by-ismail.streamlit.app/
+#Live Link: https://password-strength-meter-by-ismail.streamlit.app/
 
 import streamlit as st
 import random
