@@ -2,6 +2,8 @@
 
 # " FIRST ATTEMPT - WORKED VERY STRICT - DOES'T ALLOW ANY REPETITION OF A SINGLE CHARACTERS"
 
+#Live Link: https://password-generator-by-ismail.streamlit.app/
+
 import streamlit as st
 
 st.title("Password Strength Meter")
@@ -31,7 +33,7 @@ else:
     st.error("Please Enter a password")
 
     
-# "SECOND ATTEMPT - WORKED BUT ALSO DON'T ALLOWS REPITITION OF CHARACTERS"
+# "SECOND ATTEMPT - WORKED - NOT OPTIMIZED -  DON'T ALLOWS REPITITION OF CHARACTERS"
 
 # import streamlit as st
 
@@ -80,7 +82,7 @@ else:
 #     st.error("Please Enter a password")
 
 
-# "THIRD ATTEMPT -WORKED BUT ALLOWS REPETITION OF CHARACTERS"
+# "THIRD ATTEMPT - WORKED - OPTIMIZED - BUT ALSO ALLOWS REPETITION OF CHARACTERS"
 
 
 # import streamlit as st
