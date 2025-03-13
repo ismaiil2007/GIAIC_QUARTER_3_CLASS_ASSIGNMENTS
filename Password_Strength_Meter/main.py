@@ -5,6 +5,7 @@
 #Live Link: https://password-generator-by-ismail.streamlit.app/
 
 import streamlit as st
+import random
 
 st.title("Password Strength Meter")
 
@@ -13,20 +14,44 @@ password_validation_letters = 'abcdefghijklmnopqrstuvwxyz'
 password_validation_char="!@#$%^*()_-=+`~<>/?|"
 password_validation_numbers="1234567890"
 password_set=set(password)
-score=" "
+
 
 if password:
 
     if len(password)>=8:    
-        has_letter = len(password_set & set(password_validation_letters)) > 6  
-        has_special_char = len(password_set & set(password_validation_char)) > 0  
-        has_number = len(password_set & set(password_validation_numbers)) > 3 
-        has_capital = len(password_set & set(password_validation_letters.upper())) > 0 
+        has_letter = len(password_set & set(password_validation_letters))  
+        has_special_char = len(password_set & set(password_validation_char))   
+        has_number = len(password_set & set(password_validation_numbers))  
+        has_capital = len(password_set & set(password_validation_letters.upper())) 
 
-        if  has_letter and has_special_char and has_number and has_capital:  
-           st.success("Your Password is Strong")  
-        else:  
-            st.error("Your password must include at least contain 6 Unique lowercase letter, 1 Uppercase letter, 3 Unique number, and one special character [!,#,@,,$....]")  
+        
+        error_messages = []
+
+        if has_letter < 6:
+            error_messages.append("At least 6 unique letters are required.")
+        if has_special_char < 1:
+            error_messages.append("At least 1 special character is required.")
+        if has_number < 3:
+            error_messages.append("At least 3 unique numbers are required.")
+        if has_capital < 1:
+
+            error_messages.append("At least 1 capital letter is required.")
+
+        if not error_messages:  
+
+            st.success("Your Password is Strong") 
+            if st.button("Generate more stronger Password"):
+                # password_words = password.split() 
+                # random.shuffle(password_words)  
+                # # shuffled_password = random.shuffle(password_words)  
+                # shuffled_password = ''.join(password_words)
+                # # st.text_input("Shuffled Password", value=shuffled_password, key="shuffled")
+                shuffled_password = ''.join(random.sample(password, len(password)))  
+                # shuffled_password = ''.join(random.shuffle(password))  #Error str don't allow item assignments.
+                st.success("Shuffled Password: " + shuffled_password)   
+        else:
+
+            st.error("Your Password is Weak: " + " ".join(error_messages))
     else:
         st.error("Your password should be atleast 8 characters")
 else:
