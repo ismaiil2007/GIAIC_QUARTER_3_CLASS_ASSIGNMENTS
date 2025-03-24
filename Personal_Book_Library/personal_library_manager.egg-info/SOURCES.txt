@@ -1,0 +1,8 @@
+README.md
+setup.py
+Personal_Book_Library/__init__.py
+Personal_Book_Library/main.py
+personal_library_manager.egg-info/PKG-INFO
+personal_library_manager.egg-info/SOURCES.txt
+personal_library_manager.egg-info/dependency_links.txt
+personal_library_manager.egg-info/top_level.txt
