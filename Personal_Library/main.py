@@ -145,13 +145,13 @@ def list_available_books():
           print(f"   📂 Genre           : {book.genre}")
           print(f"   🧐 read_status     : {book.read_status}")
           print('\n')
-        {          
+{          
     # print(f"Book: ",index+1)
     # print(f"Title: ",book['title'])
     # print(f"Author: ",book['author'])
     # print(f"Publication Year: ",book['publication_year'])
     # print(f"Genre: ",book['genre'])
-        }          
+}          
         
     #    list(map(lambda x:print_books(x[1], x[0]),enumerate(Books)))
 
